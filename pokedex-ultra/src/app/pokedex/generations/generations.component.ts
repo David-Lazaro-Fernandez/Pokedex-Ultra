@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-generations',
+  selector: 'generations',
   templateUrl: './generations.component.html',
   styleUrls: ['./generations.component.scss'],
 })
