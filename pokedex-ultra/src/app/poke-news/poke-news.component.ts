@@ -8,6 +8,7 @@ import {ApiService} from './api.service';
 })
 export class PokeNewsComponent implements OnInit {
   pokeNews = [];
+  laloCuck = [];
   constructor(
     private http: HttpClientModule,
     private api: ApiService
@@ -16,19 +17,20 @@ export class PokeNewsComponent implements OnInit {
   ngOnInit() {
     this.getNews();
     console.log(this.pokeNews);
+    console.log(typeof this.pokeNews)
   }
   
   getNews(){
-    let newsArray; 
-      this.api.getPokemones().subscribe(
-        (res) =>{ 
-          console.log(res)
-          this.pokeNews.push(res.articles);
-        },
-        (err) =>{
-          console.log(err)
-        }
-      );
-    
+      for (let index = 0; index < 10; index++) {
+        this.api.getPokemones().subscribe(
+            (res) =>{ 
+              this.pokeNews.push(res.articles[index]);
+            },
+            (err) =>{
+              console.log(err)
+            }
+          );     
+        } 
+       
   }
 }
